@@ -22,7 +22,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				person.map((character, index) => {
 					formatedCharacters.push({
 						name: character.name,
-						height: character.height
+						height: character.height,
+						hair_color: character.hair_color,
+						skin_color: character.skin_color,
+						eye_color: character.eye_color,
+						birth_year: character.birth_year
 					});
 				});
 				setStore({ person: formatedCharacters });
