@@ -23,7 +23,6 @@ const injectContext = PassedComponent => {
 
 		useEffect(() => {
 			state.actions.getSpecies();
-			console.log(state.store.species);
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
