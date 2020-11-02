@@ -1,19 +1,21 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			person: []
+			starWarsCharactersDescription: []
 		},
 		actions: {
-			getPeople: () => {
+			getStarWarsPeople: () => {
 				fetch("https://swapi.dev/api/people/")
 					.then(response => {
-						if (!response.ok) {
-							throw new Error("Error");
-						}
 						return response.json();
 					})
-					.then(jsonPeople => {
-						getActions().setPerson(jsonPeople.results);
+					.then(jsonApiResponse => {
+						console.log("JSON Response: ", jsonApiResponse.results);
+						setStore({ starWarsCharactersDescription: jsonApiResponse.results });
+						console.log("characterDescriptions: ", getStore().starWarsCharactersDescription);
+					})
+					.catch(error => {
+						console.error("Error", error);
 					});
 			},
 

@@ -19,8 +19,8 @@ const injectContext = PassedComponent => {
 			})
 		);
 		useEffect(() => {
-			state.actions.getPeople();
-			state.store.person;
+			state.actions.getStarWarsPeople();
+			console.log("appContext: ", state.store.starWarsCharactersDescription);
 		}, []);
 		return (
 			<Context.Provider value={state}>
