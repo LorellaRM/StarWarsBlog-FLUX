@@ -14,7 +14,12 @@ export function CardVehicle(props) {
 			/>
 			<Card.Body>
 				<Card.Title>{props.title}</Card.Title>
-				<Card.Text>{props.text}</Card.Text>
+				<Card.Text>{props.model}</Card.Text>
+				<Card.Text>{props.manufacturer}</Card.Text>
+				<Card.Text>{props.cost}</Card.Text>
+				<Card.Text>{props.passengers}</Card.Text>
+				<Card.Text>{props.length}</Card.Text>
+
 				<Button variant="primary" href={props.linkButton1}>
 					{props.button1}
 				</Button>
@@ -28,7 +33,11 @@ export function CardVehicle(props) {
 
 CardVehicle.propTypes = {
 	title: PropTypes.string,
-	text: PropTypes.string,
+	model: PropTypes.string,
+	manufacturer: PropTypes.string,
+	cost: PropTypes.string,
+	passengers: PropTypes.string,
+	length: PropTypes.string,
 	linkButton1: PropTypes.link,
 	linkBtnFav: PropTypes.link,
 	button1: PropTypes.string,

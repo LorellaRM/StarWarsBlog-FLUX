@@ -7,11 +7,19 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div>
-			<div className="container-fluid">
+			<div>
 				{store.vehicles.map((vehicle, index) => {
-					var text = "model: " + vehicle.model;
 					return (
-						<CardVehicle key={index} title={vehicle.name} text={text} button1="More Info" linkButton1="" />
+						<CardVehicle
+							key={index}
+							title={vehicle.name}
+							model={"Model: " + vehicle.model}
+							manufacturer={"Manufacturer: " + vehicle.manufacturer}
+							cost={"Cost: " + vehicle.cost_in_credits}
+							passengers={"Passengers: " + vehicle.passengers}
+							button1="More Info"
+							linkButton1={"https://www.starwars.com/search?q=" + vehicle.name.replace(" ", "+")}
+						/>
 					);
 				})}
 			</div>
