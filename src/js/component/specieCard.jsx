@@ -20,7 +20,7 @@ export const SpecieCard = props => {
 					<li className="list-group-item">Language: {props.specieLanguage}</li>
 				</ul>
 				<div className="d-flex justify-content-between mt-2">
-					<Link to="/species">
+					<Link to={"/species/" + specieTitle}>
 						<button className="btn btn-primary">Show more</button>
 					</Link>
 					<button
