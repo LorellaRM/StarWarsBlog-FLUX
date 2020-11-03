@@ -19,6 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch();
 			},
 			setFavorites: eachFavorite => {
+				// if(getStore().favorites != getStore().favorites)
 				setStore({ favorites: [...getStore().favorites, eachFavorite] });
 			}
 		}
