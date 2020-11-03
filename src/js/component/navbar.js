@@ -4,6 +4,10 @@ import { Context } from "../store/appContext.js";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	let deleteFav = indexFav => {
+		console.log("delete function");
+		store.favorites.splice(indexFav, 1);
+	};
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -23,16 +27,22 @@ export const Navbar = () => {
 					aria-expanded="false">
 					Show favorites
 				</button>
-				<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					{store.favorites.map((eachFavorite, index) => {
 						return (
-							<a key={index} className="dropdown-item">
+							<li key={index} className="dropdown-item">
 								{eachFavorite}
-								<button>Del</button>
-							</a>
+								<button
+									className="btn btn-danger"
+									onClick={() => {
+										deleteFav(index);
+									}}>
+									Del
+								</button>
+							</li>
 						);
 					})}
-				</div>
+				</ul>
 			</div>
 		</nav>
 	);
