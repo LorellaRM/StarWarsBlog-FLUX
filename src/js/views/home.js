@@ -6,9 +6,21 @@ import { CardVehicle } from "../component/CardV";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div className="text-center mt-5">
-			<CardVehicle />
-			<button onClick={() => console.log(store.vehicles[0].model)}>PRESS HERE</button>
+		<div>
+			<div className="container-fluid">
+				{store.vehicles.map((vehicle, index) => {
+					var text = "model: " + vehicle.model;
+					return (
+						<CardVehicle key={index} title={vehicle.name} text={text} button1="More Info" linkButton1="" />
+					);
+				})}
+			</div>
+			<ul>
+				{store.people.map((person, index) => {
+					return <li key={index}> {person.name}</li>;
+				})}
+			</ul>
+			<button onClick={() => console.log(store.vehicles[1].model)}>PRESS HERE</button>
 		</div>
 	);
 };
