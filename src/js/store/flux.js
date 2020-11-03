@@ -13,24 +13,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return response.json();
 					})
 					.then(jsonSpecies => {
-						getActions().setSpecies(jsonSpecies.results);
+						setStore({ species: jsonSpecies.results });
 					})
 					.catch();
-			},
-
-			setSpecies: species => {
-				species.map(specie => {
-					getStore().species.push({
-						name: specie.name,
-						classification: specie.classification,
-						homeworld: specie.homeworld,
-						language: specie.language,
-						average_height: specie.average_height,
-						average_lifespan: specie.average_lifespan,
-						people: specie.people,
-						url: specie.url
-					});
-				});
 			}
 		}
 	};

@@ -5,12 +5,13 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+				<img
+					src="https://tendencybook.com/wp-content/uploads/2019/08/star-wars-.png"
+					className="navbar-brand mb-0"
+				/>
 			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
+			<div className="ml-auto dropdown">
+				<button className="btn btn-primary dropdown-toggle">Check the Context in action</button>
 			</div>
 		</nav>
 	);

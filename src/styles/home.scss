@@ -1,3 +1,9 @@
 .card {
     width: 18rem;
+    min-width: 18rem;
+}
+.speciesRow {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
