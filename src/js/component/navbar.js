@@ -4,10 +4,29 @@ import { Context } from "../store/appContext.js";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
-	let deleteFav = indexFav => {
-		console.log("delete function");
+	const [listElement, setListElement] = useState(null);
+	const deleteFav = indexFav => {
 		store.favorites.splice(indexFav, 1);
 	};
+
+	useEffect(() => {
+		setListElement(
+			store.favorites.map((eachFavorite, index) => {
+				return (
+					<li key={index} className="dropdown-item">
+						{eachFavorite}
+						<button
+							className="btn btn-danger"
+							onClick={() => {
+								deleteFav(index);
+							}}>
+							Del
+						</button>
+					</li>
+				);
+			})
+		);
+	});
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -28,20 +47,7 @@ export const Navbar = () => {
 					Show favorites
 				</button>
 				<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					{store.favorites.map((eachFavorite, index) => {
-						return (
-							<li key={index} className="dropdown-item">
-								{eachFavorite}
-								<button
-									className="btn btn-danger"
-									onClick={() => {
-										deleteFav(index);
-									}}>
-									Del
-								</button>
-							</li>
-						);
-					})}
+					{listElement}
 				</ul>
 			</div>
 		</nav>
