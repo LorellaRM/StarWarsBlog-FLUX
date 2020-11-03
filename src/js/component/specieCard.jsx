@@ -26,8 +26,7 @@ export const SpecieCard = props => {
 					<button
 						className="btn btn-danger"
 						onClick={() => {
-							console.log("Array previus: ", store.favorites);
-							store.favorites.push(specieTitle);
+							actions.setFavorites(specieTitle);
 							console.log("Array after: ", store.favorites);
 						}}>
 						Fav

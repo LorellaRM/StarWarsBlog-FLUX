@@ -17,6 +17,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ species: jsonSpecies.results });
 					})
 					.catch();
+			},
+			setFavorites: eachFavorite => {
+				setStore({ favorites: [...getStore().favorites, eachFavorite] });
 			}
 		}
 	};
