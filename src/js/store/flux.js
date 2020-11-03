@@ -1,7 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			species: []
+			species: [],
+			favorites: []
 		},
 		actions: {
 			getSpecies: () => {
