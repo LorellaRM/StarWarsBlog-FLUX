@@ -4,7 +4,8 @@ const getState = ({ getStore, getActions, setStore, getState }) => {
 	return {
 		store: {
 			vehicles: [],
-			people: []
+			people: [],
+			favorites: []
 		},
 		actions: {
 			getvehicles: () => {
@@ -21,6 +22,9 @@ const getState = ({ getStore, getActions, setStore, getState }) => {
 						// getActions().setVehicles(vehiclesJSON.results);
 					})
 					.catch();
+			},
+			setFavorites: eachFavorite => {
+				setStore({ favorites: [...getStore().favorites, eachFavorite] });
 			},
 
 			getpeople: () => {

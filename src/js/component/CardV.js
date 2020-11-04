@@ -6,14 +6,15 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 export function CardVehicle(props) {
+	let nameTitle = props.title;
 	return (
-		<Card style={{ width: "25rem" }}>
+		<Card className="card" style={{ width: "25rem" }}>
 			<Card.Img
 				variant="top"
 				src="https://images.pexels.com/photos/41951/solar-system-emergence-spitzer-telescope-telescope-41951.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 			/>
 			<Card.Body>
-				<Card.Title>{props.title}</Card.Title>
+				<Card.Title>{nameTitle}</Card.Title>
 				<Card.Text>{props.model}</Card.Text>
 				<Card.Text>{props.manufacturer}</Card.Text>
 				<Card.Text>{props.cost}</Card.Text>
@@ -23,7 +24,13 @@ export function CardVehicle(props) {
 				<Button variant="primary" href={props.linkButton1}>
 					{props.button1}
 				</Button>
-				<Button variant="primary" href={props.linkBtnFav}>
+				<Button
+					variant="danger"
+					o
+					onClick={() => {
+						actions.setFavorites(nameTitle);
+						console.log("Array after: ", store.favorites);
+					}}>
 					<i className="far fa-heart" />
 				</Button>
 			</Card.Body>
@@ -39,7 +46,6 @@ CardVehicle.propTypes = {
 	passengers: PropTypes.string,
 	length: PropTypes.string,
 	linkButton1: PropTypes.link,
-	linkBtnFav: PropTypes.link,
 	button1: PropTypes.string,
 	image: PropTypes.string
 };
